@@ -1,0 +1,1 @@
+model_type: "LSTM"  # Cambiar a "CNN1D" si se desea usar CNN 1D
