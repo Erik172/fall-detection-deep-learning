@@ -210,4 +210,7 @@ yolo11m-pose.pt
 yolo11x-pose.pt
 yolo11l-pose.pt
 
+# videos
+data/videos/
+
 # End of https://www.toptal.com/developers/gitignore/api/python,visualstudiocode,jupyternotebooks
