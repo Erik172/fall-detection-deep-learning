@@ -16,8 +16,6 @@ Este proyecto implementa un sistema de detección de caídas utilizando técnica
   - `utils/`: Utilidades y funciones auxiliares.
     - `video_detect_falls.py`: Funciones para la detección de caídas en videos.
     - `body.py`: Definiciones de conexiones y partes del cuerpo para la estimación de pose.
-  - `train/`: Scripts para el entrenamiento de modelos.
-    - `train_cnn1d.py`: Script para entrenar un modelo CNN1D.
 - `data/`: Directorio para almacenar datos de entrenamiento y prueba.
 - `media/`: Contiene imágenes y videos utilizados en el README y otros documentos.
 
