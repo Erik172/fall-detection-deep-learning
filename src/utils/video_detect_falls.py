@@ -6,11 +6,22 @@ from ultralytics import YOLO
 import supervision as sv
 
 def video_detect_falls(video_path, yolo_model_path, gru_model, fall_threshold=0.95, scale_percent=100, sequence_length=20, show_pose=False, record=False):
-    from utils.body import BODY_CONNECTIONS_DRAW, BODY_PARTS_NAMES
+    from src.utils.body import BODY_CONNECTIONS_DRAW, BODY_PARTS_NAMES
+    from src.models.fall_detection_gru import FallDetectionGRU
     
     cap = cv2.VideoCapture(video_path)
     model_yolo = YOLO(yolo_model_path, verbose=False)
     byte_tracker = sv.ByteTrack()
+    
+    model = FallDetectionGRU(
+        input_size=34, 
+        hidden_size=64, 
+        num_layers=2, 
+        output_size=1, 
+        dropout_prob=.6
+    )   
+    model.load_state_dict(torch.load(gru_model))
+    model.eval()
     
     width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
     height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
@@ -67,7 +78,7 @@ def video_detect_falls(video_path, yolo_model_path, gru_model, fall_threshold=0.
                     keypoints_sequence = torch.tensor(keypoints_sequence).unsqueeze(0)
                     
                     with torch.no_grad():
-                        prediction = gru_model(keypoints_sequence)
+                        prediction = model(keypoints_sequence)
                         fall_probability = prediction.item()
                         is_fall = fall_probability > fall_threshold
                     

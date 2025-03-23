@@ -44,12 +44,13 @@ Para detectar caídas en un video, utiliza el siguiente script:
 from src.utils.video_detect_falls import video_detect_falls
 
 video_detect_falls(
-    video_path='data/videos/test/falls/drunk.mp4',
-    yolo_model_path='models/yolo11x-pose.pt',
-    gru_model='models/fall_detector_gru.pth',
-    fall_threshold=0.95,
+    video_path='data/videos/falls/yoga-fail-fall.mp4', # Change this to the path of the video you want to test
+    yolo_model_path='yolo11x-pose.pt',
+    gru_model='models/gru_model.pth',
+    fall_threshold=.95,
     scale_percent=100,
     sequence_length=20,
     show_pose=True,
-    record=True
+    record=True,
 )
+```
