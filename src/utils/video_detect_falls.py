@@ -123,12 +123,12 @@ def video_detect_falls(video_path, yolo_model_path, gru_model, fall_threshold=0.
         cv2.putText(annotated_frame, f'Personas: {len(results.keypoints.xy)}', (10, 60), 
                     cv2.FONT_HERSHEY_SIMPLEX, text_scale, (255, 0, 0), text_thickness, cv2.LINE_AA)
         
-        annotated_frame = cv2.resize(annotated_frame, (new_width, new_height))
-        cv2.imshow('frame', annotated_frame)
-
         # Guardar el frame en el video si record=True
         if record:
             out.write(annotated_frame)
+        
+        annotated_frame = cv2.resize(annotated_frame, (new_width, new_height))
+        cv2.imshow('frame', annotated_frame)
         
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
