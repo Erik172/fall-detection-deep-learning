@@ -1,6 +1,6 @@
 # Fall Detection using Pose Estimation and GRU
 
-[![Medium](https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white)](https://medium.com/me/stats/post/2941db4c95a3)
+[![Medium](https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white)](https://medium.com/p/2941db4c95a3)
 
 ![Banana Peel](media/banana-peel-inference.gif)
 
