@@ -213,4 +213,8 @@ yolo11l-pose.pt
 # videos
 data/videos/
 
+# falldet outputs
+falldet_out/
+falldet_eval/
+
 # End of https://www.toptal.com/developers/gitignore/api/python,visualstudiocode,jupyternotebooks
